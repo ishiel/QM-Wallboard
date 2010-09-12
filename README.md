@@ -1,12 +1,12 @@
 QueueMetrics has a wallboard.  Why build another?
-=================================================
+-------------------------------------------------
 
 Are you kidding?  Have you seen that monstrosity?
 
 I think the QM wallboard is ugly, illegible and it doesn't have all the useful information that your agents need.  This is my effort to make things a little better.
 
 So this code is fantastically stable?  Right?
-=============================================
+---------------------------------------------
 
 Umm, well I'm using it in production and it works fine but it's currently missing a lot of much needed stuff
 
@@ -17,7 +17,7 @@ Missing things:
 You should bear the following in mind: I'm not a professional programmer and I wrote this in a hurry.  So, you know, if this turns your phone system to custard then you're probably going to feel pretty stupid for having listened to me.  Test, test and test again before you go to production.
 
 What's it made of?
-==================
+------------------
 
 * It's written in Ruby
 * It uses QM's XMLRPC API (alphabet soup!) to query realtime data.  This is done by a simple class I created.  
