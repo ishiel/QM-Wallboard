@@ -11,6 +11,7 @@ So this code is fantastically stable?  Right?
 Umm, well I'm using it in production and it works fine but it's currently missing a lot of much needed stuff
 
 Missing things:
+
 * Error handling (seriously, this isn't in here yet)
 * A more efficient way of querying the server
 
