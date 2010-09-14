@@ -40,12 +40,14 @@ How do I make this work?
 ------------------------
 
 You will need:
+
 * A QueueMetrics server (obviously)
 * Any OS that can run Ruby (both 1.8.7 and 1.9 seem to work fine)
 * The following Ruby gems: Sinatra, HAML, Configatron
 * The files in this repository (again, obviously)
 
 You need to do the following:
+
 * Copy the files to a folder (maintaining the folder structure)
 * Edit config.yml so that it has the following info: server and port are the ip address and 
   port of your server, which should be clearly visible in the QM URL.  The path probably 
@@ -56,6 +58,7 @@ You need to do the following:
         ruby qm_web.rb
 
 Some things you might want to change:
+
 * The wallboard updates every ten seconds.  If you edit ./views/index.haml you can change the 
   values in the javascript block from 10000 to anything you wish.  I wouldn't recommend 
   setting it lower than that.
