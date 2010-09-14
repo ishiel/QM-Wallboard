@@ -1,0 +1,30 @@
+:javascript
+  var auto_refresh = setInterval(
+  function ()
+  {
+  $('.agents').load('/agents?random=' + Math.random()*99999).fadeIn("slow");
+  $('.incoming').load('/incoming?random=' + Math.random()*99999).fadeIn("slow");
+  $('.ongoing').load('/ongoing?random=' + Math.random()*99999).fadeIn("slow");
+  }, 10000); // refresh every 10000 milliseconds
+
+%span.header
+  &nbsp;
+
+%h1 Wallboard
+%hr
+
+%h1 Agents
+%span.agents
+  = haml :agents, :layout => false
+
+%hr
+
+%h1 Incoming
+%span.incoming
+  = haml :incoming, :layout => false
+
+%hr
+
+%h1 Ongoing
+%span.ongoing
+  = haml :ongoing, :layout => false

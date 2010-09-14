@@ -1,0 +1,13 @@
+%table
+  - unless @ongoing == nil
+    - @ongoing.each do |call|
+      %tr.call
+        %td.agent
+          %span.text= call.agent
+        %td.source
+          %span.text= call.source
+        %td.waiting
+          %span.time= "Duration: #{call.duration}"
+
+ 
+

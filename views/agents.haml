@@ -1,0 +1,14 @@
+%table
+  - @agents.each do |agent|
+    %tr.agent
+      %td.name
+        %span.text= agent.name
+      %td.paused
+        -if agent.paused
+          %img.icon{:src => '/img/pause.png'}
+          %span.small= agent.pause_time
+        -else
+          %img.icon{:src => '/img/play.png'}
+
+ 
+

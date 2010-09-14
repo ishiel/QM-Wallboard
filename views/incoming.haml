@@ -1,0 +1,14 @@
+%table
+  - unless @incoming == nil
+    - @incoming.each do |call|
+      %tr.call
+        %td.name
+          %span.text= call.source
+        %td.name
+          -if call.too_long
+            %span(style="color:#F2583E;")
+              %span.time= "Waiting: #{call.waiting}"
+          -else
+            %span.time= "Waiting: #{call.waiting}"
+ 
+

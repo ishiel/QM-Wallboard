@@ -1,0 +1,15 @@
+!!! Strict
+%html{:xmlns=> "http://www.w3.org/1999/xhtml", 'xml:lang' => "en", :lang => "en"}
+  %head
+    %meta{'http-equiv' => "Content-Type", 'content' => "text/html; charset=utf-8"}
+    %title QueueMonitor
+    %link{:rel => 'stylesheet', :href => '/css/screen.css', :type => 'text/css'}
+    %link{:rel => 'stylesheet', :href => '/css/style.css', :type => 'text/css'}
+    /[if IE]
+      %link{:rel => 'stylesheet', :href => '/css/ie.css', :type => 'text/css'}
+    %script{:type => 'text/javascript', :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'}
+  %body
+    .container
+      .span-24
+        = yield
+
