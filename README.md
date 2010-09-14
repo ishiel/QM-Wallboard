@@ -15,7 +15,7 @@ Missing things:
 * Error handling (seriously, this isn't in here yet)
 * A more efficient way of querying the server
 
-You should bear the following in mind: I'm not a professional programmer and I wrote this in a hurry.  So, you know, if this turns your phone system to custard then you're probably going to feel pretty stupid for having listened to me.  Test, test and test again before you go to production.
+You should bear the following in mind: I'm not a professional programmer and I wrote this in a hurry.  So, you know, if this turns your phone system to custard then you're probably going to feel pretty stupid if run this without testing first.  Test, test and test again before you go to production.
 
 What's it made of?
 ------------------
