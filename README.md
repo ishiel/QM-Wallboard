@@ -15,6 +15,7 @@ Missing things:
 * Error handling (seriously, this isn't in here yet)
 * A more efficient way of querying the QueueMetrics server
 * I'm not entirely convinced that it always detects when an agent is on an outgoing call.  Sometimes QM will detect an agent is on call; other times it doesn't but they are on the Outgoing queue.  I have no idea why this is.  A fix should be do-able, I just haven't done it yet
+* I haven't built any tests.
 
 A word of caution
 -----------------
@@ -30,7 +31,7 @@ What's it made of?
 * It uses Sinatra and HAML to present that data to a browser, and JQuery to update the data
 * I've used Blueprint CSS to get a quick, sane page layout but I may drop that as it's 
   complete overkill
-* It's using JQuery hosted at Google Code rather than locally.  Just laziness on my part really.
+* It's using JQuery 1.4.2 for the AJAX refreshing 
 * I've ripped off the following document massively.  Well, why reinvent the wheel: 
   http://www.digitalhobbit.com/2009/11/08/building-a-twitter-filter-with-sinatra-redis-and-tweetstream/
 * The colour scheme is stolen from here:
