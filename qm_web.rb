@@ -6,9 +6,11 @@ require File.join(File.dirname(__FILE__), 'qm_realtime')
 set :config, 'config.yml'
 
 get '/' do
-  @qm     = Qmetrics.new(settings.config)
-  @agents = @qm.agents
-  @calls  = @qm.calls
+  @qm       = Qmetrics.new(settings.config)
+  @agents   = @qm.agents
+  @ongoing  = @qm.ongoing
+  @incoming = @qm.incoming
+  @calls    = @qm.calls
   haml :index
 end
 
