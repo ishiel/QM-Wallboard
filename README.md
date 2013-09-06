@@ -17,7 +17,7 @@ Missing things:
 ### What's it made of?
 
 * It's written in Ruby
-* It uses QM's XMLRPC API (alphabet soup!) to query realtime data.  This is done by a simple class I created.  
+* It uses QM's XMLRPC API (alphabet soup!) to query real-time data.  This is done by a simple class I created.  
 * It uses Sinatra and HAML to present that data to a browser, and JQuery to update the data
 * I've used Blueprint CSS to get a quick, sane page layout but I may drop that as it's 
   complete overkill
@@ -44,7 +44,7 @@ You need to do the following:
    * Queue is the queue you want to manage, as seen in the QM application.  
    * User and password is the credentials you use to login to QM (you should create an account specially for your wallboard).
 * To test the app just do the following: `ruby qm_web.rb`
-* If you want to run this in a more permanent manner then you'll need to look into running Sinatra apps on your web server of choice. I've been using Apache and Passenger Phusion. 
+* If you want to run this in a more permanent manner then you'll need to look into running Sinatra apps on your web server of choice. I've been using Apache and Phusion Passenger. 
 
 Some things you might want to change:
 
