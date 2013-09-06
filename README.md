@@ -1,68 +1,53 @@
-QueueMetrics has a wallboard.  Why build another?
--------------------------------------------------
+# QueueMetrics Wallboard
 
-Let's just say that the QueueMetrics wallboard has a face only a mother could love.
+### QueueMetrics already has a wallboard.  Why build another?
 
-I think the QM wallboard is ugly, hard to read and it doesn't have all the useful information that your agents need.  This is my effort to make things a little better.
+The QueueMetrics wallboard is functional but it also looks ugly and can be quite hard to read. This is my effort to make things a little better.
 
-So this code is fantastically stable?  Right?
----------------------------------------------
+### So this code is fantastically stable?  
 
-Umm, well I'm using it in production and it works fine but it's currently missing a lot of much needed stuff
+Well I've been using it in production for a couple of years and it works fine but I would advise extensive testing before going live with it.
 
 Missing things:
 
-* Error handling (seriously, this isn't in here yet)
+* Error handling - it doesn't break gracefully at all
 * A more efficient way of querying the QueueMetrics server
-* I'm not entirely convinced that it always detects when an agent is on an outgoing call.  Sometimes QM will detect an agent is on call; other times it doesn't but they are on the Outgoing queue.  I have no idea why this is.  A fix should be do-able, I just haven't done it yet
-* I haven't built any tests.
+* I haven't built any tests
 
-A word of caution
------------------
-
-You should bear the following in mind: I'm not a professional programmer and I wrote this in a hurry.  So, you know, if this turns your phone system to custard then you're probably going to feel pretty stupid if you run this without testing it first.  Test, test and test again before you go to production.
-
-What's it made of?
-------------------
+### What's it made of?
 
 * It's written in Ruby
-* It uses QM's XMLRPC API (alphabet soup!) to query realtime data.  This is done by a simple 
-  class I created.  
+* It uses QM's XMLRPC API (alphabet soup!) to query realtime data.  This is done by a simple class I created.  
 * It uses Sinatra and HAML to present that data to a browser, and JQuery to update the data
 * I've used Blueprint CSS to get a quick, sane page layout but I may drop that as it's 
   complete overkill
-* It's using JQuery 1.4.2 for the AJAX refreshing 
-* I've ripped off the following document massively.  Well, why reinvent the wheel: 
+* It's using JQuery 1.6.4 for the AJAX refreshing 
+* I've used the following document as the basis for much of this so credit where it's due: 
   http://www.digitalhobbit.com/2009/11/08/building-a-twitter-filter-with-sinatra-redis-and-tweetstream/
-* The colour scheme is stolen from here:
+* The colour scheme is taken from here:
   http://colorcombos.com/color-scheme-275.html
 
-How do I make this work?
-------------------------
+### How do I make this work?
 
 You will need:
 
-* A QueueMetrics server (obviously)
+* A running and installed QueueMetrics server 
 * Any OS that can run Ruby (both 1.8.7 and 1.9 seem to work fine)
 * The following Ruby gems: Sinatra, HAML, Configatron
-* The files in this repository (again, obviously)
+* The files in this repository 
 
 You need to do the following:
 
 * Copy the files to a folder (maintaining the folder structure)
-* Edit config.yml so that it has the following info: server and port are the ip address and 
-  port of your server, which should be clearly visible in the QM URL.  The path probably 
-  doesn't need to change.  Queue is the queue you want to manage, as seen in the QM 
-  application.  User and password is the credentials you use to login to QM (you should 
-  probably create an account specially for your wallboard).
-* To run the app just do the following:
-        ruby qm_web.rb
+* Edit config.yml so that it has the following info: 
+   * Server and port are the ip address and port of your server, which should be clearly visible in the QM URL.  The path probably doesn't need to change.  
+   * Queue is the queue you want to manage, as seen in the QM application.  
+   * User and password is the credentials you use to login to QM (you should create an account specially for your wallboard).
+* To test the app just do the following: `ruby qm_web.rb`
+* If you want to run this in a more permanent manner then you'll need to look into running Sinatra apps on your web server of choice. I've been using Apache and Passenger Phusion. 
 
 Some things you might want to change:
 
-* The wallboard updates every ten seconds.  If you edit ./views/index.haml you can change the 
-  values in the javascript block from 10000 to anything you wish.  I wouldn't recommend 
-  setting it lower than that.
-* You can change the default font size.  If you edit ./public/css/style.css you can change 
-  the font-size in the body block and this will change everything else proportionally.
+* The wallboard updates every ten seconds.  If you edit ./views/index.haml you can change the values in the javascript block from 10000 to anything you wish.  I wouldn't recommend setting it lower than that.
+* You can change the default font size.  If you edit ./public/css/style.css you can change the font-size in the body block and this will change everything else proportionally.
 
