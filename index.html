@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Qm-wallboard : A pretty wallboard for QueueMetrics" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Qm-wallboard</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ishiel/QM-Wallboard">View on GitHub</a>
+
+          <h1 id="project_title">Qm-wallboard</h1>
+          <h2 id="project_tagline">A pretty wallboard for QueueMetrics</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ishiel/QM-Wallboard/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ishiel/QM-Wallboard/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="queuemetrics-wallboard" class="anchor" href="#queuemetrics-wallboard"><span class="octicon octicon-link"></span></a>QueueMetrics Wallboard</h1>
+
+<h3>
+<a name="queuemetrics-already-has-a-wallboard--why-build-another" class="anchor" href="#queuemetrics-already-has-a-wallboard--why-build-another"><span class="octicon octicon-link"></span></a>QueueMetrics already has a wallboard.  Why build another?</h3>
+
+<p>The QueueMetrics wallboard is functional but it also looks ugly and can be quite hard to read. This is my effort to make things a little better.</p>
+
+<h3>
+<a name="so-this-code-is-fantastically-stable" class="anchor" href="#so-this-code-is-fantastically-stable"><span class="octicon octicon-link"></span></a>So this code is fantastically stable?</h3>
+
+<p>Well I've been using it in production for a couple of years and it works fine but I would advise extensive testing before going live with it.</p>
+
+<p>Missing things:</p>
+
+<ul>
+<li>Error handling - it doesn't break gracefully at all</li>
+<li>A more efficient way of querying the QueueMetrics server</li>
+<li>I haven't built any tests</li>
+</ul><h3>
+<a name="whats-it-made-of" class="anchor" href="#whats-it-made-of"><span class="octicon octicon-link"></span></a>What's it made of?</h3>
+
+<ul>
+<li>It's written in Ruby</li>
+<li>It uses QM's XMLRPC API (alphabet soup!) to query real-time data.  This is done by a simple class I created.<br>
+</li>
+<li>It uses Sinatra and HAML to present that data to a browser, and JQuery to update the data</li>
+<li>I've used Blueprint CSS to get a quick, sane page layout but I may drop that as it's 
+complete overkill</li>
+<li>It's using JQuery 1.6.4 for the AJAX refreshing </li>
+<li>I've used the following document as the basis for much of this so credit where it's due: 
+<a href="http://www.digitalhobbit.com/2009/11/08/building-a-twitter-filter-with-sinatra-redis-and-tweetstream/">http://www.digitalhobbit.com/2009/11/08/building-a-twitter-filter-with-sinatra-redis-and-tweetstream/</a>
+</li>
+<li>The colour scheme is taken from here:
+<a href="http://colorcombos.com/color-scheme-275.html">http://colorcombos.com/color-scheme-275.html</a>
+</li>
+</ul><h3>
+<a name="how-do-i-make-this-work" class="anchor" href="#how-do-i-make-this-work"><span class="octicon octicon-link"></span></a>How do I make this work?</h3>
+
+<p>You will need:</p>
+
+<ul>
+<li>A running and installed QueueMetrics server </li>
+<li>Any OS that can run Ruby (both 1.8.7 and 1.9 seem to work fine)</li>
+<li>The following Ruby gems: Sinatra, HAML, Configatron</li>
+<li>The files in this repository </li>
+</ul><p>You need to do the following:</p>
+
+<ul>
+<li>Copy the files to a folder (maintaining the folder structure)</li>
+<li>Edit config.yml so that it has the following info: 
+
+<ul>
+<li>Server and port are the ip address and port of your server, which should be clearly visible in the QM URL.  The path probably doesn't need to change.<br>
+</li>
+<li>Queue is the queue you want to manage, as seen in the QM application.<br>
+</li>
+<li>User and password is the credentials you use to login to QM (you should create an account specially for your wallboard).</li>
+</ul>
+</li>
+<li>To test the app just do the following: <code>ruby qm_web.rb</code>
+</li>
+<li>If you want to run this in a more permanent manner then you'll need to look into running Sinatra apps on your web server of choice. I've been using Apache and Phusion Passenger. </li>
+</ul><p>Some things you might want to change:</p>
+
+<ul>
+<li>The wallboard updates every ten seconds.  If you edit ./views/index.haml you can change the values in the javascript block from 10000 to anything you wish.  I wouldn't recommend setting it lower than that.</li>
+<li>You can change the default font size.  If you edit ./public/css/style.css you can change the font-size in the body block and this will change everything else proportionally.</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Qm-wallboard maintained by <a href="https://github.com/ishiel">ishiel</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
