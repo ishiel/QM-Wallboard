@@ -4,6 +4,14 @@
 
 The QueueMetrics wallboard is functional but it also looks ugly and can be quite hard to read. This is my effort to make things a little better.
 
+Here's the built-in wallboard in QueueMetrics:
+
+![My image](http://ishiel.github.io/QM-Wallboard/images/queuemetrics.png)
+
+Here's the QM-Wallboard I've created:
+
+![My image](http://ishiel.github.io/QM-Wallboard/images/qmwallboard.png)
+
 ### So this code is fantastically stable?  
 
 Well I've been using it in production for a couple of years and it works fine but I would advise extensive testing before going live with it.
