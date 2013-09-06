@@ -6,6 +6,11 @@
   $('.incoming').load('/incoming?random=' + Math.random()*99999).fadeIn("slow");
   $('.ongoing').load('/ongoing?random=' + Math.random()*99999).fadeIn("slow");
   }, 10000); // refresh every 10000 milliseconds
+  var auto_reload = setInterval(
+  function()
+  {
+  location.reload()
+  },1800000); // reload page every 30 mins
 
 %span.header
   &nbsp;
