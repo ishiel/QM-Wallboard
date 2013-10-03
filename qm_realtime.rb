@@ -1,3 +1,4 @@
+require "rubygems"
 require "xmlrpc/client"
 require "configatron"     #ver: 2.6.3
 
@@ -54,7 +55,7 @@ class Qmetrics
     list     = ["RealtimeDO.RTAgentsLoggedIn","RealtimeDO.RTCallsBeingProc"]
 
     # Call the remote server and get our result
-    @result = server.call("QM.realtime", config.queue, config.user, config.password, logfile, agent, list)
+    @result = server.call("QM.realtime", "#{config.queue}", config.user, config.password, logfile, agent, list)
     @calls  = calls_arr
     @incoming, @ongoing = calls_group
     @agents = agents_arr
@@ -71,7 +72,7 @@ private
     agents = @result["RealtimeDO.RTAgentsLoggedIn"]
     agents.shift
     agents.each {|agent|
-      a = Agent.new(agent[1], agent[6], @ongoing)
+      a = Agent.new(agent[2], agent[6], @ongoing)
       agents_arr << a
     }
     agents_arr
@@ -82,7 +83,7 @@ private
     calls = @result["RealtimeDO.RTCallsBeingProc"]
     calls.shift
     calls.each {|call|
-      c = Call.new(call[2],call[4],call[6],call[3],call[5])
+      c = Call.new(call[2],call[5],call[7],call[3],call[6])
       calls_arr << c
     }
     calls_arr
