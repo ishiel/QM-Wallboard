@@ -4,7 +4,7 @@
 
 The QueueMetrics wallboard is functional but it also looks ugly and can be quite hard to read. This is my effort to make things a little better.
 
-Note: This code is only known to work with version 13.04.2.
+Note: This code is only known to work with version 13.04.2 of QueueMetrics.
 
 Here's the built-in wallboard in QueueMetrics:
 
