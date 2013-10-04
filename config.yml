@@ -1,7 +1,0 @@
----
-server: 10.20.10.150
-path: /queuemetrics/xmlrpc.do
-port: 8080
-queue: 31000
-user: reporter
-password: gXy5pdvs
