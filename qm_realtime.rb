@@ -70,9 +70,9 @@ private
   def agents_arr
     agents_arr = Array.new
     agents = @result["RealtimeDO.RTAgentsLoggedIn"]
-    agents.shift
+    idx = index_col(agents.shift)
     agents.each {|agent|
-      a = Agent.new(agent[2], agent[6], @ongoing)
+      a = Agent.new(agent[idx["Agent"]], agent[idx["On pause"]], @ongoing)
       agents_arr << a
     }
     agents_arr
@@ -81,9 +81,9 @@ private
   def calls_arr
     calls_arr  = Array.new
     calls = @result["RealtimeDO.RTCallsBeingProc"]
-    calls.shift
+    idx = index_col(calls.shift)
     calls.each {|call|
-      c = Call.new(call[2],call[5],call[7],call[3],call[6])
+      c = Call.new(call[idx["Caller"]],call[idx["Waiting"]],call[idx["Agent"]],call[idx["Entered"]],call[idx["Duration"]])
       calls_arr << c
     }
     calls_arr
@@ -92,6 +92,21 @@ private
   def calls_group
     calls = @calls.group_by {|call| call.incoming }
     return calls[true], calls[false]
+  end
+
+  def index_col(header)
+    cols = {}
+    header.each_with_index {|col,index|
+      col = tidy_header(col)
+      cols[col] = index unless col == ""
+    }
+    cols
+  end
+  
+  def tidy_header(label)
+    label.sub!(/\&nbsp;/,"")
+    label.strip!
+    label
   end
 end
 
