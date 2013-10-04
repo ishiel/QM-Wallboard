@@ -35,8 +35,8 @@ h1 {
 }
 
 .fade {
-  position: relative;
-  height: 1.5em; /* exactly three lines */
+  position: relative; /* nice fade effect from: http://css-tricks.com/line-clampin/ */
+  height: 1.5em;
 }
 .fade:after {
   content: "";
