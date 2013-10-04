@@ -1,0 +1,7 @@
+---
+server: 10.10.10.10
+path: /queuemetrics/xmlrpc.do
+port: 8080
+queue: myqueue
+user: user
+password: chunkybacon
