@@ -1,8 +1,8 @@
 body {
   font-family: lucida console,monospace;
-  font-size: 17pt;
+  font-size: 24.5pt;
   color: #D5E1DD;
-  background: #2B3E42;
+  background: #2B3E42; /* if you change this also change background in .fade.background */
 }
 
 img.icon{
@@ -10,7 +10,7 @@ img.icon{
 }
 
 td.name {
-  width: 250px;
+  width: 320px;
 }
 
 h1 {
@@ -23,11 +23,29 @@ h1 {
 }
 
 .text {
-  width: 1200px;
+  width: 320px;
+  height: 1.5em;
+  white-space: nowrap;
+  overflow: hidden;
   font-size: 1em;
 }
 
 .small {  
   font-size: 0.5em;
+}
+
+.fade {
+  position: relative;
+  height: 1.5em; /* exactly three lines */
+}
+.fade:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 15%;
+  height: 1.5em;
+  background: linear-gradient(to right, rgba(43, 62, 66, 0), rgba(43, 62, 66, 1) 50%);
 }
 

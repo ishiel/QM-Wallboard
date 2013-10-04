@@ -2,7 +2,7 @@
   - @agents.each do |agent|
     %tr.agent
       %td.name
-        %span.text= agent.name
+        .text.fade= agent.name
       %td.paused
         -if agent.paused
           %img.icon{:src => '/img/pause.png'}
